@@ -1,0 +1,27 @@
+name: github release
+on:
+  workflow_run:
+    workflows: [CMake on multiple platforms]
+    types: [completed]
+
+jobs:
+  on-success:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+    - name: Download artifacts
+      uses: actions/download-artifact@v3
+      with:
+        path: ${{github.workspace}}/build
+
+    - name: Create Release
+      id: create_release
+      uses: softprops/action-gh-release@v1
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      with:
+        tag_name: v0.0.${{ github.run_number }}
+        files: build/*.deb/*.deb
+        draft: false
+        prerelease: false
+
