@@ -11,16 +11,22 @@ configure_file(
 )
 
 if (NOT CMAKE_CXX_STANDARD)
-    set(CMAKE_CXX_STANDARD 14)
+    set(CMAKE_CXX_STANDARD 17)
 endif()
 
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+if (NOT BUILD_TESTING)
+    set(BUILD_TESTING ON)
+endif()
+
 if (BUILD_TESTING)
     include(CTest)
     enable_testing()
 endif()
+
+add_subdirectory(libs/print_ip)
 
 add_executable(${PROJECT_NAME}
     main.cpp
@@ -33,6 +39,11 @@ install(TARGETS ${PROJECT_NAME}
 target_include_directories(${PROJECT_NAME}
 PRIVATE
     ${CMAKE_BINARY_DIR}
+)
+
+target_link_libraries(${PROJECT_NAME}
+PRIVATE
+  print-ip
 )
 
 if (UNIX)
