@@ -99,6 +99,7 @@ jobs:
       run: ctest --build-config ${{ matrix.build_type }}
 
     - name: Package
+      if: ${{ matrix.os == 'ubuntu-latest' }}
       # Make deb package
       run: cmake --build ${{github.workspace}}/build --config ${{ matrix.build_type }} --target package
 
