@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.6)
 set(PATCH_VERSION 1 CACHE INTERNAL "Patch version. Default = 1")
 set(PROJECT_VERSION 0.0.${PATCH_VERSION} CACHE INTERNAL "Application version" FORCE)
 
-project(application VERSION ${PROJECT_VERSION} LANGUAGES CXX)
+project(print-ip VERSION ${PROJECT_VERSION} LANGUAGES CXX)
 
 configure_file(
     version.h.in
@@ -43,7 +43,7 @@ PRIVATE
 
 target_link_libraries(${PROJECT_NAME}
 PRIVATE
-  print-ip
+  print-ip-lib
 )
 
 if (UNIX)
@@ -57,5 +57,3 @@ if (UNIX)
     set(CPACK_DEBIAN_PACKAGE_MAINTAINER "My Corporation")
     include(CPack)
 endif()
-
-

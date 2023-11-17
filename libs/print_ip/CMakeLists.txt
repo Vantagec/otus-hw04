@@ -1,10 +1,11 @@
 cmake_minimum_required(VERSION 3.6)
 
-project(print-ip  LANGUAGES CXX)
+project(print-ip-lib  LANGUAGES CXX)
 
 add_library(${PROJECT_NAME}
 INTERFACE
     include/print_ip.h
+    include/custom_traits.h
 )
 
 if (BUILD_TESTING)

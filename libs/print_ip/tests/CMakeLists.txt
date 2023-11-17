@@ -20,7 +20,7 @@ PRIVATE
 target_link_libraries(${PROJECT_NAME}
 PRIVATE
     ${GTEST_BOTH_LIBRARIES}
-    print-ip
+    print-ip-lib
 )
 
 add_test(${PROJECT_NAME} ${PROJECT_NAME})
