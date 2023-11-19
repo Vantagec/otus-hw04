@@ -33,7 +33,7 @@ jobs:
 
       - name: Package
             # Generate doxigen documentation
-        run: cmake --build ${{github.workspace}}/build --config release --target doxygen
+        run: cmake --build ${{ steps.strings.outputs.build-output-dir }} --config release --target doxygen
         
       # - name: Run Doxygen
       #   uses: mattnotmitt/doxygen-action@v1.2.1
