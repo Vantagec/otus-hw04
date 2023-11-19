@@ -4,6 +4,10 @@
 
 using namespace std;
 
+//!
+//! \brief main - основная функция программы, демонстрирующая работу шаблонной функции print_ip
+//! \return
+//!
 int main()
 {
     using namespace std;

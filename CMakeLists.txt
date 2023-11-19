@@ -57,3 +57,44 @@ if (UNIX)
     set(CPACK_DEBIAN_PACKAGE_MAINTAINER "My Corporation")
     include(CPack)
 endif()
+
+# find_package(Doxygen)
+
+# if (DOXYGEN_FOUND)
+#     set(DOXYGEN_INPUT ${CMAKE_CURRENT_SOURCE_DIR}/README.md\ ${CMAKE_CURRENT_SOURCE_DIR}/ )
+
+#     set(DOXYGEN_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/docs/)
+
+#     set(DOXYGEN_IN ${CMAKE_CURRENT_SOURCE_DIR}/docs/doxygen.conf.in)
+#     set(DOXYGEN_OUT ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile.out)
+
+#     configure_file(${DOXYGEN_IN} ${DOXYGEN_OUT} @ONLY)
+
+#     add_custom_target(docs ALL
+#             COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYGEN_OUT}
+#             WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+#             COMMENT "Generating docs"
+#             VERBATIM )
+# else (DOXYGEN_FOUND)
+#     message("doxygen need to be installed")
+# endif(DOXYGEN_FOUND)
+
+find_package(Doxygen)
+if(DOXYGEN_FOUND)
+    set(DOXYGEN_IN ${CMAKE_CURRENT_SOURCE_DIR}/docs/doxygen.conf.in)
+    set(DOXYGEN_OUT ${CMAKE_CURRENT_BINARY_DIR}/doxygen.conf)
+
+    set(DOXYGEN_INPUT ${CMAKE_CURRENT_SOURCE_DIR}/README.md\ ${CMAKE_CURRENT_SOURCE_DIR}/ )
+
+    set(DOXYGEN_OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/docs/)
+
+    configure_file(${DOXYGEN_IN} ${DOXYGEN_OUT})
+
+
+    add_custom_target(doxygen COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYGEN_OUT}
+        COMMENT "Generating docs"
+        VERBATIM
+    )
+else(DOXYGEN_FOUND)
+    message(STATUS "Doxygen not found - reference manual will not be created")
+endif(DOXYGEN_FOUND)
