@@ -29,6 +29,7 @@ jobs:
           cmake -B ${{ steps.strings.outputs.build-output-dir }}
             -DPATCH_VERSION=${{ github.run_number }}
             -DBUILD_TESTING=OFF
+            -DCMAKE_POLICY_DEFAULT_CMP0077=NEW
             -S ${{ github.workspace }}
 
       - name: Package
