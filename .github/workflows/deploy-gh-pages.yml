@@ -24,13 +24,12 @@ jobs:
         run: |
           pwd
           ls -la 
-          ls -la build
-          ls -la docs
+          ls -la html
       - name: Pages Deployment
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ${{ github.workspace }}/build/docs/html/
+          publish_dir: ./html/
           enable_jekyll: false
           allow_empty_commit: false
           force_orphan: true
