@@ -14,6 +14,12 @@ jobs:
       with:
         path: ${{github.workspace}}/build
 
+    - name: Fixup artifacts
+      run: |
+        pwd
+        ls -la 
+        ls -la build
+
     - name: Create Release
       id: create_release
       uses: softprops/action-gh-release@v1
