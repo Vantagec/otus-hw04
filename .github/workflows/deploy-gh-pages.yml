@@ -13,13 +13,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Run Doxygen
         uses: mattnotmitt/doxygen-action@v1.2.1
         with:
           # These are default values, but included for clarity
           doxyfile-path: ./docs/doxygen.conf.in
           working-directory: .
+      - name: Fixup artifacts
+        run: |
+          pwd
+          ls -la 
+          ls -la build
+          ls -la docs
       - name: Pages Deployment
         uses: peaceiris/actions-gh-pages@v3
         with:
