@@ -1,0 +1,10 @@
+digraph "/home/runner/work/otus-cpp-2023-06-hw04/otus-cpp-2023-06-hw04/libs" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_6719ab1f1f7655efc2fa43f7eb574fd1 {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_6719ab1f1f7655efc2fa43f7eb574fd1.html"];
+    dir_6719ab1f1f7655efc2fa43f7eb574fd1 [shape=plaintext label="libs"];
+  dir_d741057ec07c79089f18cc67a110846b [shape=box label="print_ip" fillcolor="white" style="filled" color="red" URL="dir_d741057ec07c79089f18cc67a110846b.html"];
+  }
+}

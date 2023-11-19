@@ -1,0 +1,11 @@
+digraph "/home/runner/work/otus-cpp-2023-06-hw04/otus-cpp-2023-06-hw04/libs/print_ip/tests" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_d741057ec07c79089f18cc67a110846b {
+    graph [ bgcolor="#ddddee", pencolor="black", label="print_ip" fontname="Helvetica", fontsize="10", URL="dir_d741057ec07c79089f18cc67a110846b.html"]
+  dir_c1544dc54fdc60b67349e56c35b9d14b [shape=box label="include" URL="dir_c1544dc54fdc60b67349e56c35b9d14b.html"];
+  dir_5f9abb0508ee7717c64a917f58ebf2af [shape=box, label="tests", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_5f9abb0508ee7717c64a917f58ebf2af.html"];
+  }
+  dir_5f9abb0508ee7717c64a917f58ebf2af->dir_c1544dc54fdc60b67349e56c35b9d14b [headlabel="1", labeldistance=1.5 headhref="dir_000006_000005.html"];
+}
