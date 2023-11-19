@@ -28,7 +28,7 @@ jobs:
         run: >
           cmake -B ${{ steps.strings.outputs.build-output-dir }}
             -DPATCH_VERSION=${{ github.run_number }}
-            -DBUILD_TESTING=ON
+            -DBUILD_TESTING=OFF
             -S ${{ github.workspace }}
 
       - name: Package
