@@ -13,6 +13,7 @@ jobs:
       uses: actions/download-artifact@v3
       with:
         path: ${{github.workspace}}/build
+        name: print-ip-0.0.${{ github.run_number }}-Linux.deb
 
     - name: Fixup artifacts
       run: |
