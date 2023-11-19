@@ -8,7 +8,7 @@ INTERFACE
     include/custom_traits.h
 )
 
-if (BUILD_TESTING)
+if (${BUILD_TESTING})
     add_subdirectory(tests)
 endif()
 

@@ -21,7 +21,7 @@ if (NOT BUILD_TESTING)
     set(BUILD_TESTING ON)
 endif()
 
-if (BUILD_TESTING)
+if (${BUILD_TESTING})
     include(CTest)
     enable_testing()
 endif()
