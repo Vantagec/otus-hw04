@@ -9,17 +9,7 @@
 #include <tuple>
 #include <algorithm>
 
-/** @name Пользовательские переменные вывода типа
- * Структуры для вывода типа с использованием принципов SFINAE 
- */
-
-/// @{ 
-/** @name Пользовательские переменные вывода типа
- */
-/// @{ \defgroup type_traits Структуры вывода типа
-
-
-namespace {// std::string traits helpers
+namespace {
 
 template <typename T>
 struct is_std_string: std::false_type {};
@@ -28,15 +18,10 @@ template <>
 struct is_std_string<std::string>: std::true_type {};
 
 }
-
-/// @brief Проверка типа на string
-/// @tparam T 
-/// @ingroup type_traits
-/// @return true, ecли T - std::string, иначе - false
 template <typename T>
 inline constexpr bool is_std_string_v = is_std_string<T>::value;
 
-namespace { // std::vector traits helpers
+namespace { 
 
 template <typename ... Args>
 struct is_std_vector_helper: std::false_type {};
@@ -49,13 +34,10 @@ using is_std_vector = is_std_vector_helper<Args...>;
 
 }
 
-/// @brief Проверка типа на vector
-/// @tparam T 
-/// @ingroup type_traits
 template <typename T>
 inline constexpr bool is_std_vector_v = is_std_vector<T>::value;
 
-namespace { // std::list traits helpers
+namespace {
 
 template <typename ... Args>
 struct is_std_list_helper: std::false_type {};
@@ -68,20 +50,16 @@ using is_std_list = is_std_list_helper<Args...>;
 
 }
 
-/// @brief Проверка типа на list
-/// @tparam T 
-/// @ingroup type_traits
+
 template <typename T>
 inline constexpr bool is_std_list_v = is_std_list<T>::value;
 
 
-/// @brief Проверка типа на list и vector
-/// @tparam T 
-/// @ingroup type_traits
+
 template <typename T>
 inline constexpr bool is_std_list_or_vector_v = is_std_list_v<T> || is_std_vector_v<T>;
 
-namespace { // std::tuple traits helpers
+namespace { 
 
 template <typename ... Args>
 struct is_std_tuple_helper: std::false_type {};
@@ -169,5 +147,3 @@ std::ostream &print_ip_impl(T &&value, std::ostream &outStream)
 }
 
 }
-
-/// @}
